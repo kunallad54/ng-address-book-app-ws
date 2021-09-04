@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="header-content">
+        <div class="address-detail-text">
+            Person Details
+            <div class="address-count">{{addressCount}}</div>
+        </div>
+        <a class="add-button" routerLink="/form">
+            <img src="../../../assets/icons/add-24px.svg" alt="">Add Person</a>
+    </div>
+    <div class="table-main">
+        <table id="table-display" class="table">
+            <tr>
+                <!-- Table Headers -->
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Phone Number</th>
+                <th></th>
+            </tr>
+            <!-- Person Details-->
+            <tr *ngFor="let address of personDetails">
+                <td>{{address.name}}</td>
+                <td>{{address.address}}</td>
+                <td>{{address.city}}</td>
+                <td>{{address.state}}</td>
+                <td>{{address.zip}}</td>
+                <td>{{address.mobileNumber}}</td>
+                <!--To update and delete an employee from the database-->
+                <td>
+                    <img id={{address.id}} (click)="remove(address.id)" src="../assets/icons/delete-black-18dp.svg" alt="delete">
+                    <img  id={{address.id}} (click)="update(address)" src="../assets/icons/create-black-18dp.svg"
+                        alt="edit">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

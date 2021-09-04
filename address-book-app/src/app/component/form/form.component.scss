@@ -1,0 +1,193 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.header {
+    padding: 15px 0;
+    background-color: #ffffff;
+}
+
+.header-content {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+
+.logo-content {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+}
+
+.logo-content img {
+    width: 50px;
+    height: 50px;
+}
+
+.address-text {
+    font: normal normal bold 20px/25px Montserrat;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0px;
+    color: #008CFF;
+    text-transform: capitalize;
+}
+
+.address-payroll {
+    color: #42515F;
+}
+
+/* UC 2*/
+
+.form-content {
+    padding-top: 40px;
+    min-height:calc(100% -80px);
+    background-color:#f7f7f7;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
+    } 
+
+    .form {
+        width: 65%;
+        background:white 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 8px;
+        opacity: 1;
+    }
+
+    .form-head {
+        font: normal normal bold 24px/37px Roboto;
+        letter-spacing: 0px;
+        color: white;
+        background-color: #008CFF;
+        text-align: center;
+        text-transform: capitalize;
+        opacity: 1;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .row-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 20px;
+        margin-left: 140px;
+        margin-right: 0px;
+    }
+
+    .close{
+        align-items: right;
+        margin-right: 50px;;     
+    }
+    
+
+    /* UC3 */
+    .row-content-address {
+       
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+        margin-left: 140px;
+        margin-right: 70px;
+    }
+    
+    .subAddress {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    
+    .city-container,
+    .state-container {
+        padding-right: 10px;
+    }
+    .zip-container{
+        padding-right: 50px;
+        
+    }
+    label {
+        min-width: 140px;
+        padding: 12px 12px 12px 0;
+    }
+    
+    // .input {
+    //     width: 100%;
+    //     padding: 12px;
+    //     border: 1px solid#ccc;
+    //     border-radius: 4px;
+    //     resize: vertical;
+    // }
+    
+    .example-full-width {
+        width: 80%;
+        align-items: center;
+    }
+
+    // #zip {
+    //     padding: 10px;
+    // }
+    
+    .text {
+        font-size: 16px;
+        color: #42515f;
+        opacity: 1;
+        font-family: Roboto;
+    }
+    
+    // .mat-select {
+    //     padding: 12px;
+    //     border: 1px solid #ccc;
+    //     border-radius: 4px;
+    //     resize: vertical;
+    //     font: normal normal normal 16px Roboto;
+    //     letter-spacing: 0px;
+    //     color: #42515f;
+    //     background-color: transparent;
+    // }
+    
+    .add-reset {
+        padding-left: 320px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .button {
+        font-size: 20px;
+        font-family: Roboto;
+        font: normal normal normal 20px/26px Roboto;;
+        letter-spacing: 0px;
+        opacity: 1;
+        font-weight: 400;
+        min-width: 140px;
+        padding: 7px 7px;
+        cursor: pointer;
+        color: #42515F;
+        background: #E2E2E2 0% 0% no-repeat padding-box;
+        border: 1px solid #969696;
+        border-radius: 5px;
+        margin: 20px 0 0 20px;
+        
+    }
+    .resetButton:hover{
+        background-color:#707070;
+        color: #f7f7f7;
+    }
+    .addButton:hover{
+        background-color: #008CFF;
+        color:#f7f7f7;
+    }
