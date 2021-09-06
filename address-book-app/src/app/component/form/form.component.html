@@ -1,15 +1,16 @@
 <div class="body-container form-content">
-    <form class="form" [formGroup]="addressFormGroup" action="#" onreset="resetForm()" (ngSubmit)="submit()">
+    <form class="form" [formGroup]="addressFormGroup" action="#" onreset="resetForm()" (ngSubmit)="submit()" type="search" autocomplete="off">
         <div class="form-head">
             <span class="head">PERSON ADDRESS FORM</span>
-            <img src="../../../assets/images/cancel.jpeg" alt="" width="4%" id="cancel-icon" class="close"
-                style="float: right" onclick="cancel()">
+            <a routerLink="/home"><img src="../../../assets/images/cancel.jpeg" alt="" width="4%" id="cancel-icon" class="close"
+                style="float: right"></a>
+            
         </div>
         <!-------Input Name--------->
         <div class="row-content">
             <mat-label class="label text" for="name">Full Name</mat-label>
             <mat-form-field class="example-full-width" appearance="outline">
-                <input class="input" type="text" matInput ngDefaultControl formControlName="name" required>
+                <input class="input" type="text" matInput ngDefaultControl formControlName="name"  type="search" autocomplete="off" required>
                 <mat-error *ngIf="checkError('name', 'required')">Name is required</mat-error>
                 <mat-error *ngIf="checkError('name', 'pattern')">Name should start with upper
                     case and should have minimum of 3 characters</mat-error>
@@ -20,7 +21,7 @@
             <mat-label class="label text">Phone Number</mat-label>
             <mat-form-field class="example-full-width" appearance="outline">
                 <input id="phoneNo" type="text" class="input" matInput ngDefaultControl formControlName="mobileNumber"
-                    required>
+                type="search" autocomplete="off" required>
                 <mat-error *ngIf="checkError('mobileNumber', 'required')">Phone Number is required</mat-error>
                 <mat-error *ngIf="checkError('mobileNumber', 'pattern')">Phone Number Should have 10 digits</mat-error>
             </mat-form-field>
@@ -30,7 +31,7 @@
             <mat-label class="label text">Address</mat-label>
             <mat-form-field class="example-full-width" appearance="outline">
                 <textarea matInput id="address" class="input" name="Address" placeholder="" style="height:100px"
-                    ngDefaultControl formControlName="address" required></textarea>
+                    ngDefaultControl formControlName="address"  autocomplete="disabled" required></textarea>
                 <mat-error *ngIf="checkError('address', 'required')">Address is required</mat-error>
             </mat-form-field>
         </div>
@@ -65,15 +66,25 @@
             <div class="zip-container subAddress">
                 <mat-label class="label text">Zip Code</mat-label>
                 <mat-form-field class="example-full-width" appearance="outline">
-                    <input id="zip" type="text" class="input" matInput ngDefaultControl formControlName="zip" required>
+                    <input id="zip" type="text" class="input" matInput ngDefaultControl formControlName="zip" type="search" autocomplete="off" required>
                     <mat-error *ngIf="checkError('zip', 'required')">Zip Code is required</mat-error>
                 </mat-form-field>
             </div>
         </div>
         <!------Submit Reset Buttons ------->
-        <div class="add-reset">
+        <!-------- Buttons When User Click on Add User Button ------->
+        <div class="add-reset" *ngIf="router.url === '/form';else elseBlock" >
             <button mat-raised-button class="addButton button" type="submit" id="addButton">Add</button>
             <button mat-raised-button class="resetButton button" type="reset" id="resetButton">Reset</button>
         </div>
+        <!-------- Buttons When User Click on Edit Button ------->
+        <ng-template #elseBlock>
+            <div class="add-reset">
+                <button mat-raised-button class="addButton button" type="submit" id="addButton">Update</button>
+                <a routerLink="/home">
+                    <button mat-raised-button class="resetButton button" type="cancel" id="resetButton">Cancel</button>
+                </a>
+            </div>
+        </ng-template>
     </form>
 </div>

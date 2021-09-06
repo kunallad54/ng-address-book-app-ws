@@ -1,3 +1,6 @@
+/**
+ * Address Book Model 
+ */
 export class AddressBook {
     id!: number;
     name!: string;

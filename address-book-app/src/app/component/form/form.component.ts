@@ -20,6 +20,8 @@ interface State {
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+
+  //Array of Cities
   cities: City[] = [
     { value: 'Mumbai', viewValue: 'Mumbai' },
     { value: 'Pune', viewValue: 'Pune' },
@@ -29,6 +31,8 @@ export class FormComponent implements OnInit {
     { value: 'Chennai', viewValue: 'Chennai' },
     { value: 'Ahmedabad', viewValue: 'Ahmedabad' },
   ];
+
+  //Array of States
   states: State[] = [
     { value: 'Maharashtra', viewValue: 'Maharashtra' },
     { value: 'Gujarat', viewValue: 'Gujarat' },
@@ -43,7 +47,7 @@ export class FormComponent implements OnInit {
   constructor
     (private fb: FormBuilder,
       private httpService: HttpService,
-      private router: Router,
+      public router: Router,
       private route: ActivatedRoute,
       private dataService: DataService,
       private snackBar: SnackBarComponent,
@@ -62,6 +66,11 @@ export class FormComponent implements OnInit {
   }
 
 
+  /**
+   * Purpose : To get the value of properties from addressFormGroup by givin person ID
+   *           and then set the value and update it in the DB as well and it is called when
+   *           user clicks on edit/update button on UI
+   */
   ngOnInit(): void {
     if (this.route.snapshot.params['id'] != undefined) {
 
@@ -84,6 +93,18 @@ export class FormComponent implements OnInit {
   }
 
 
+  /**
+   * Submit Form
+   * 
+   * Purpose : This method is used for Error-Validation,and for Put and Post Request.
+   * 
+   *           - Initially it validates the whole form whether proper inputs are given by end user or not.
+   *           - If URL contains an ID then update method i.e PUT request is called if not then 
+   *             add method i.e POST request is called.
+   *           - Once either of the methods get executed, the respond data is consoled on
+   *             screen to verify its status.
+   *           - Finally the page gets redirected to the home page and a message is displayed to the user. 
+   */
   submit() {
 
     this.addressbook = this.addressFormGroup.value;
@@ -106,6 +127,14 @@ export class FormComponent implements OnInit {
     }
 
   }
+
+  /**
+   * Purpose : This method is used for validating each and every field of Address book
+   * 
+   * @param controlName value add in the input tag 
+   * @param errorName error value got from the mat-error tag
+   * @returns the error value
+   */
   public checkError = (controlName: string, errorName: string) => {
     return this.addressFormGroup.controls[controlName].hasError(errorName);
   }
